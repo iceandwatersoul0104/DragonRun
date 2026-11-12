@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="leaflet/leaflet.css"/>
+<script src="leaflet/leaflet.js"></script>
+<style>
+  html,body,#map{height:100%;margin:0;background:#EDF1F7;}
+  .leaflet-control-attribution{font-size:9px;opacity:.55;}
+  .pt{background:#FF6B35;border:2px solid #fff;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.35);}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+var map = L.map('map', {zoomControl:false, attributionControl:true}).setView([39.9042,116.4074], 16);
+L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
+  subdomains: ['1','2','3','4'],
+  maxZoom: 19,
+  minZoom: 3,
+  attribution: '高德地图'
+}).addTo(map);
+
+var pts = [];
+var line = L.polyline([], {color:'#2F6FED', weight:4, opacity:.9}).addTo(map);
+var markers = [];
+
+function redraw() {
+  line.setLatLngs(pts);
+  while (markers.length > pts.length) {
+    map.removeLayer(markers.pop());
+  }
+  while (markers.length < pts.length) {
+    var i = markers.length;
+    var m = L.marker(pts[i], {
+      icon: L.divIcon({className:'', html:'<div class="pt" style="width:12px;height:12px"></div>', iconSize:[12,12], iconAnchor:[6,6]}),
+      draggable: false
+    }).addTo(map);
+    markers.push(m);
+  }
+  var d = 0;
+  for (var k = 1; k < pts.length; k++) d += pts[k-1].distanceTo(pts[k]);
+  if (window.Bridge && Bridge.onPoints) Bridge.onPoints(pts.length, Math.round(d));
+}
+
+function addPoint(lat, lng) {
+  pts.push(L.latLng(lat, lng));
+  redraw();
+}
+
+function undoPoint() {
+  if (pts.length) { pts.pop(); redraw(); }
+}
+
+function clearPoints() {
+  pts = [];
+  redraw();
+}
+
+function setPoints(arr) {
+  pts = arr.map(function(p){ return L.latLng(p[0], p[1]); });
+  redraw();
+  if (pts.length) map.setView(pts[pts.length-1], map.getZoom());
+}
+
+function setCamera(lat, lng, zoom) {
+  map.setView([lat, lng], zoom || map.getZoom());
+}
+
+function pointCount() { return pts.length; }
+
+map.on('click', function(e) {
+  if (window.Bridge && Bridge.onMapClick) {
+    Bridge.onMapClick(e.latlng.lat, e.latlng.lng);
+  }
+});
+
+redraw();
+</script>
+</body>
+</html>

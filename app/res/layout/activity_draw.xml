@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="?attr/card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="‹"
+            android:textColor="?attr/text"
+            android:textSize="28sp" />
+        <com.acooldog.fuckrun.ui.DragonLogoView
+            android:layout_width="56dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="绘制路线"
+            android:textColor="?attr/text"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_save"
+            style="@style/PrimaryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:text="保存" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <WebView
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="12dp"
+            android:background="#CC1B2333"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="点击地图添加点"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/card"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_stats"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0 个点 · 0 m"
+                android:textColor="?attr/text"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_undo"
+                style="@style/GhostButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:text="撤销" />
+
+            <Button
+                android:id="@+id/btn_clear"
+                style="@style/GhostButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:text="清空" />
+
+            <Button
+                android:id="@+id/btn_center"
+                style="@style/PrimaryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:text="中心加点" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="6dp"
+            android:text="提示：连续点击画出折线；返回后可在地图中心补点。保存时会按当前时间命名。"
+            android:textColor="?attr/text_sub"
+            android:textSize="11sp" />
+    </LinearLayout>
+</LinearLayout>

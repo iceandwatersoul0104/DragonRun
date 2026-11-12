@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 蓝白 -->
+    <color name="blue_bg">#F4F6FA</color>
+    <color name="blue_card">#FFFFFF</color>
+    <color name="blue_primary">#2F6FED</color>
+    <color name="blue_primary_dark">#1F54C0</color>
+    <color name="blue_text">#1B2333</color>
+    <color name="blue_text_sub">#6B7485</color>
+    <color name="blue_green">#18A058</color>
+    <color name="blue_red">#D03050</color>
+    <color name="blue_line">#E4E8F0</color>
+    <color name="blue_chip_bg">#EAF1FF</color>
+
+    <!-- 红黑 -->
+    <color name="red_bg">#120A0C</color>
+    <color name="red_card">#1E1114</color>
+    <color name="red_primary">#E23A2E</color>
+    <color name="red_primary_dark">#8E1B13</color>
+    <color name="red_text">#F5E9EA</color>
+    <color name="red_text_sub">#B08A8E</color>
+    <color name="red_green">#3DDC84</color>
+    <color name="red_red">#FF4D4D</color>
+    <color name="red_line">#3A2226</color>
+    <color name="red_chip_bg">#33161A</color>
+
+    <color name="on_primary">#FFFFFF</color>
+    <color name="icon_bg">#0E0709</color>
+</resources>

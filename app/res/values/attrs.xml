@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="bg" format="color" />
+    <attr name="card" format="color" />
+    <attr name="primary" format="color" />
+    <attr name="primary_dark" format="color" />
+    <attr name="text" format="color" />
+    <attr name="text_sub" format="color" />
+    <attr name="green" format="color" />
+    <attr name="red" format="color" />
+    <attr name="line" format="color" />
+    <attr name="chip_bg" format="color" />
+    <attr name="on_primary" format="color" />
+</resources>

@@ -1,0 +1,32 @@
+# build outputs
+app/build/
+build/
+*.apk
+*.apk.idsig
+
+# signing material
+tools/
+*.keystore
+*.jks
+*.p12
+
+# local helpers / captures
+*.log
+*.png
+*.jpg
+*.xml.bak
+ui*.xml
+captures/
+
+# IDE / OS
+.vs/
+.idea/
+.vscode/
+*.user
+Thumbs.db
+.DS_Store
+
+# python / node scratch
+__pycache__/
+node_modules/
+fetch-license.mjs
